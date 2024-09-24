@@ -25,9 +25,10 @@
   <p>Actualice la página para mostrar un nuevo trío de cartas.</p>
 
 <?php
-$carta1=rand(1,6);
-$carta2=rand(1,6);
-$carta3=rand(1,6);
+$carta1=rand(1,10);
+$carta2=rand(1,10);
+$carta3=rand(1,10);
+$cartaMayor;
 
 
 printf('  <img src="./img/c%s.svg" alt="" srcset="">
@@ -41,6 +42,24 @@ printf('  <img src="./img/c%s.svg" alt="" srcset="">
 
 echo'<br>';
 
+if ($carta1>$carta2 && $carta1>$carta3 || 
+$carta3==$carta1 && $carta1>$carta2  || 
+$carta2==$carta1  && $carta1>$carta3 
+) {
+  $cartaMayor=$carta1;
+}
+ if ($carta2>$carta1 && $carta3<$carta2
+ || $carta3==$carta2 && $carta2>$carta1 
+ ) {
+  $cartaMayor=$carta2;
+
+}
+if ($carta3>$carta1 && $carta3>$carta2) {
+  $cartaMayor=$carta3;
+
+}
+
+echo("La carta mas grande es ".$cartaMayor);
 
 
 ?>

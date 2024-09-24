@@ -24,7 +24,25 @@
 
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+$color1=rand(0,255);
+$color2=rand(0,255);
+$color3=rand(0,255);
+
+
+$radio=rand(50,150);
+$radio2=rand(50,150);
+$radio3=rand(50,150);
+$radio4=rand(50,150);
+
+print(
+  '<svg width="750" height="500" viewBox="0 0 1000 1000"  xmlns="http://www.w3.org/2000/svg">
+  <circle   cx="0" cy="50%" r="'.$radio.'" fill="rgb('.$color1 ." ".$color2 ." ".$color2.')"/>
+  <circle  cx="325" cy="50%" r="'.$radio2.'" fill="rgb('.$color2 ." ".$color1 ." ".$color3.')"/>
+  <circle  cx="700" cy="50%" r="'.$radio3.'" fill="rgb('.$color3 ." ".$color2 ." ".$color1.')"/>
+  <circle  cx="1050" cy="50%" r="'.$radio4.'" fill="rgb('.$color3 ." ".$color2 ." ".$color1.')"/>
+
+  </svg>.'
+);
 
 ?>
 
