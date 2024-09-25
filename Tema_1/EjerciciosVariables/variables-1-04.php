@@ -44,7 +44,8 @@ echo'<br>';
 
 if ($carta1>$carta2 && $carta1>$carta3 || 
 $carta3==$carta1 && $carta1>$carta2  || 
-$carta2==$carta1  && $carta1>$carta3 
+$carta2==$carta1  && $carta1>$carta3 ||
+$carta2==$carta1 && $carta3==$carta1
 ) {
   $cartaMayor=$carta1;
 }

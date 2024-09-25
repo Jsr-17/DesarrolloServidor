@@ -25,8 +25,15 @@
   <p>Actualice la página para mostrar un nuevo bombardeo alienígena. Los dados determinan qué casillas son bombardeadas.</p>
 
 <?php
+  $dado=rand(1,6);
+  $dado2 = rand(1, 6);
+  $dado3 = rand(1, 6);
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+
+
+echo  '<img src="img/'.$dado.'.svg" alt="" srcset="">
+<img src="img/'.$dado2.'.svg" alt="" srcset="">
+<img src="img/'.$dado3.'.svg" alt="" srcset="">';
 
 ?>
   <p>
@@ -55,8 +62,22 @@ print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
       <line x1="740" y="0" x2="680" y2="80" stroke="black" stroke-width="1" fill="none" />
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+echo '
+ <text x="'.$dado * 40 .'" y="45" text-anchor="middle" font-size="20" opacity="0">
+&#x1f4a5
+<animate dur="0.5s" attributeName="opacity" from="0" to="5" begin="0.6s" fill="freeze" />
+</text>
+ <text x="'.($dado+$dado2) * 40 .'" y="45" text-anchor="middle" font-size="20" opacity="0">
+&#x1f4a5
+<animate dur="0.5s" attributeName="opacity" from="0" to="5" begin="0.6s" fill="freeze" />
+</text>
+ <text x="'.($dado+$dado2+$dado3) * 40 .'" y="45" text-anchor="middle" font-size="20" opacity="0">
+&#x1f4a5
+<animate dur="0.5s" attributeName="opacity" from="0" to="5" begin="0.6s" fill="freeze" />
+</text>
 
+
+'
 ?>
       <text x="0" y="20" text-anchor="middle" font-size="60">
         &#x1f6f8;
