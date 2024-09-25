@@ -37,9 +37,10 @@ $circulo3=rand(50,150);
 print('
 <svg width="750" height="500" viewBox="0 0 1000 1000"  xmlns="http://www.w3.org/2000/svg">
 <circle   cx="0" cy="200" r="'.$circulo.'" fill="rgb('.$color1 ." ".$color2 ." ".$color2.')"/>
-<circle  cx="300" cy="200" r="'.$circulo2.'" fill="rgb('.$color2 ." ".$color1 ." ".$color3.')"/>
-<circle  cx="600" cy="200" r="'.$circulo3.'" fill="rgb('.$color3 ." ".$color2 ." ".$color1.')"/>
-</svg>.');
+<circle  cx="'.$circulo+$circulo2.'" cy="200" r="'.$circulo2.'" fill="rgb('.$color2 ." ".$color1 ." ".$color3.')"/>
+<circle  cx="'.$circulo+$circulo2+$circulo3+$circulo2.'" cy="200" r="'.$circulo3.'" fill="rgb('.$color3 ." ".$color2 ." ".$color1.')"/>
+</svg>.
+');
 
 ?>
 

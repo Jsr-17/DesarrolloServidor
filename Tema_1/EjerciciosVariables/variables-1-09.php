@@ -24,9 +24,13 @@
 
   <p>Actualice la página para mostrar una nueva tirada.</p>
 
+<img src="./img/tablero.svg" alt="" srcset="">
+
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+print('
+
+');
 
 ?>
 
