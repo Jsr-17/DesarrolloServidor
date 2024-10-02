@@ -19,8 +19,23 @@
 
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+$bits=[rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1)];
+$bits2=[];
 
+for ($i=count($bits); $i > 0; $i--) { 
+  if ($bits[$i]==$bits[$i-1]) {
+    $bits2[$i]=0;
+  }else {
+    $bits2[$i]=1;
+  }
+}
+for ($i=0; $i < count($bits); $i++) {
+  echo $bits[$i];
+}
+echo"<br>";
+for ($i=0; $i < count($bits2); $i++) {
+  echo $bits2[$i];
+}
 ?>
 
   <footer>

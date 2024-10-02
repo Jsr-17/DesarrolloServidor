@@ -19,9 +19,20 @@
 
 <?php
 $bits=[rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1),rand(0,1)];
+$bits2=[];
+for ($i=0; $i < count($bits); $i++) {
 
-for ($i=0; $i < count($bits); $i++) { 
   echo $bits[$i];
+
+  if($bits[$i]==0){
+    $bits2[$i]=1;
+  }else{
+    $bits2[$i]= 0;
+  }
+}
+echo "<br>";
+for ($i=0; $i < count($bits2); $i++) { 
+  echo $bits2[$i];
 }
 
 
