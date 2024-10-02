@@ -19,7 +19,21 @@
 
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+$numAleatorioRango=rand(20,30);
+$arrayAnimales=[];
+$numAleatorioAnimal=[];
+
+for ($i=0; $i < $numAleatorioRango; $i++) { 
+  $numAleatorioAnimal=rand(0,60);
+
+  $arrayAnimales[$i]="&#1280".$numAleatorioAnimal.";";
+
+}
+for ($i= 0; $i < count($arrayAnimales); $i++) {  
+echo $arrayAnimales[$i];
+
+}
+
 
 ?>
 
