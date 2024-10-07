@@ -36,6 +36,12 @@ for ($i=0; $i <$numAleatorio ; $i++) {
 
 }
 
+echo "<br>";
+
+$numEmoticono=rand(12,80);
+$valor=(string)$numEmoticono;
+$emoji="&#1285". $valor.";";
+echo( in_array($emoji,$arrayEmoticonos)) ? "El emoticono esta en el array": "El emoticono no esta en el array";
 
 ?>
 

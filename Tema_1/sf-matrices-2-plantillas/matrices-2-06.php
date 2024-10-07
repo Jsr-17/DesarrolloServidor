@@ -25,7 +25,28 @@
 
 <?php
 
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+
+$numAleatorio=rand(7,20);
+$arrayEmoticonos=[];
+
+for ($i=0; $i <$numAleatorio ; $i++) { 
+  $numEmoticono=rand(47,52);
+  $valor=(string)$numEmoticono;
+  $arrayEmoticonos[$i]="&#1281". $valor.";";
+  echo $arrayEmoticonos[$i];
+}
+$valores=array_count_values($arrayEmoticonos);
+echo("<br>");
+
+$e=0;
+
+foreach($valores as $data){
+  echo $arrayEmoticonos[$e];
+  echo $data;
+  echo("<br>");
+  $e++;
+}
+
 
 ?>
 

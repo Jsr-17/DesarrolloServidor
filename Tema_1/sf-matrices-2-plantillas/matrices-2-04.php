@@ -32,23 +32,19 @@ $arrayEmoticonos=[];
 for ($i=0; $i < $numAleatorio; $i++) { 
 $numAleatorio2=rand(2,11);
 $valor=(string) $numAleatorio2;
+
 if ($numAleatorio2<10){
   $valor= "0".$valor;
 }
 $arrayEmoticonos[$i]="&#101". $valor.";";
 echo $arrayEmoticonos[$i];
-
 }
 
 echo "<br>";
-for ($i=0; $i < $numAleatorio; $i++) { 
-  $arr=array_unique( $arrayEmoticonos);
-  echo $arr[$i];
-  }
-  
-
-
-print "  <p class=\"aviso\">Ejercicio incompleto</p>\n";
+$arrUnicos = array_unique($arrayEmoticonos);
+foreach ($arrUnicos as $emoticono) {
+  echo $emoticono;
+}
 
 ?>
 
