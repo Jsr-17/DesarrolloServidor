@@ -24,15 +24,31 @@ $arrayAnimales=[];
 $numAleatorioAnimal=[];
 
 for ($i=0; $i < $numAleatorioRango; $i++) { 
-  $numAleatorioAnimal=rand(0,60);
+  $numAleatorioAnimal=rand(10,60);
 
   $arrayAnimales[$i]="&#1280".$numAleatorioAnimal.";";
-
 }
+echo"<br>";
+
 for ($i= 0; $i < count($arrayAnimales); $i++) {  
 echo $arrayAnimales[$i];
+}
+
+$animalAleatorio=$arrayAnimales[rand(0,count($arrayAnimales))];
+
+echo "<br>";
+echo "Animal aleatorio a eliminar".$animalAleatorio;
+echo "<br>";
+
+
+for ($i= 0; $i < count($arrayAnimales); $i++) {  
+  if($arrayAnimales[$i]==$animalAleatorio) unset($arrayAnimales[$i]);
+  echo$arrayAnimales[$i];
+
 
 }
+
+echo "<br>";
 
 
 ?>
