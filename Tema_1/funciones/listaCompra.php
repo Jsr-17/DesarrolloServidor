@@ -6,17 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-    require("245imprimeTicketCompra.php");
-    ?>
-
-
     <?php
+    include("supermercadoDeConfianza");
+    include("supermercadoSevero");
+    include("imprimeTicketCompra");
 
-    muestraTabla();
-
-    
     ?>
-
+    
 </body>
 </html>
