@@ -4,6 +4,7 @@ $contador = isset($_POST["contador"]) ? $_POST["contador"] : 0;
 
 if (isset($_POST["nombreProducto"]) && isset($_POST["cantidad"]) && isset($_POST["imagenProducto"])) {
 
+
     $nombre = (string) $_POST["nombreProducto"];
     $cantidad = (int) $_POST["cantidad"];
     $imagen = (string) $_POST["imagenProducto"];
@@ -11,7 +12,7 @@ if (isset($_POST["nombreProducto"]) && isset($_POST["cantidad"]) && isset($_POST
 
     $nuevosProductos = ["nombre" => $nombre, "cantidad" => $cantidad, "imagen" => "./imagenes/" . $imagen];
     $productos[$contador] = $nuevosProductos;
-
+    $contador++;
 }
 
 
@@ -58,8 +59,13 @@ producto, cantidad e imagen del producto.
     <form action="ejercicio1.php" method="post">
         <input type="hidden" name="contador" value='<?= $contador ?>'>
         <?php
-        foreach ($productos as $key => $value) {
-            echo ' <input type="hidden" name="productos[]" value=' . $value . '>';
+
+        for ($i = 0; $i < count($productos); $i++) {
+            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
+            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
+            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
+
+
         }
         ?>
 
