@@ -4,7 +4,30 @@ if (isset($_POST['seleccionados'])) {
 }
 
 
-$resultados = [];
+$jugador1 = $_POST["jugador1"];
+$jugador2 = $_POST["jugador2"];
+$DATA = "";
+
+function compruebaResultado($j1, $j2, $index, $arrProducto)
+{
+    $precio = $arrProducto[$index]["precio"];
+
+    if ($j1 == $j2 && $j1 == $precio) {
+        $DATA = "empate";
+
+    }
+    if ($j1 <= $precio && $j2 > $precio) {
+        $DATA = "gana j1";
+    }
+    if ($j2 <= $precio && $j1 > $precio) {
+        $DATA = "gana j2";
+    }
+    return $DATA;
+}
+
+
+$jugador1Resultados = [];
+$jugador2Resultados = [];
 
 
 
@@ -42,7 +65,6 @@ $productos = [
 // Inicializar un array de productos seleccionados
 if (!isset($_POST['seleccionados'])) {
     $seleccionados = array_fill(0, count($productos), false); // Inicialmente, todos a false (ninguno seleccionado)
-    $resultados = [];
 } else {
     // Recuperar el array de productos seleccionados después de una selección
     $seleccionados = $_POST['seleccionados'];
@@ -52,14 +74,6 @@ if (!isset($_POST['seleccionados'])) {
 if (isset($_POST['seleccionar'])) {
     $indice_seleccionado = $_POST['seleccionar']; // Índice del producto seleccionado
     $seleccionados[$indice_seleccionado] = true; // Marcar ese producto como seleccionado
-}
-if (isset($_POST["precio"]) || isset($_POST["index"])) {
-    for ($i = 0; $i < count($_POST["precio"]); $i++) {
-        $precio[$_POST["index"][$i]] = $_POST["precio"][$i];
-    }
-}
-if (isset($_POST["resultados"])) {
-    print_r($_POST["resultados"]);
 }
 ?>
 
@@ -120,78 +134,42 @@ if (isset($_POST["resultados"])) {
         <!-- Enviamos el array de productos seleccionados como campos ocultos -->
         <?php foreach ($seleccionados as $i => $seleccionado) { ?>
             <input type="hidden" name="seleccionados[]" value="<?= $seleccionado ? 1 : 0; ?>">
-
         <?php } ?>
 
         <div class="tablero">
             <?php foreach ($productos as $index => $producto) { ?>
                 <div class="producto">
-                    <?php if ($seleccionados[$index]) {
-
-                        ?>
-                        <input type="hidden" name="precio[]" value="<?= $productos[$index]["precio"] ?>">
-                        <input type="hidden" name="index[]" value="<?= $index ?>">
+                    <?php if ($seleccionados[$index]) { ?>
                         <!-- Si el producto ya ha sido seleccionado, mostramos la imagen del producto -->
                         <img src="<?= $producto['imagen']; ?>" alt="<?= $producto['nombre']; ?>">
                         <p><?= $producto['nombre']; ?></p>
+                    <?php } else {
 
-                    <?php } else { ?>
+                        ?>
                         <!-- Si el producto no ha sido seleccionado, mostramos la imagen con la ? -->
                         <img src="imagenes/interrogacion.png" alt="¿?">
                         <button type="submit" name="seleccionar" value="<?= $index; ?>">Seleccionar</button>
 
                     <?php }
-                    ?>
+                    compruebaResultado($jugador1, $jugador2, $index, $productos) ?>
                 </div>
-            <?php } ?>
+            <?php }
+            echo ' 
+            <form action="$_SERVER["PHP_SELF"]" method="post" >
+                    Jugador 1 valor:
+                    <input type="number" name="jugador1" >
+                    Jugador 2 valor:
+                    <input type="number" name="jugador2">
+            </form>'
+
+                ?>
         </div>
 
         <div>
-
-
-            jugador1: <input type="number" name="jugador1">
-            jugador2: <input type="number" name="jugador2">
-            <button type="submit">enviar</button>
-
-            <pre>
-                <?php
-                if (isset($precio)) {
-
-                    print_r($precio);
-                }
-                if (isset($_POST["jugador1"]) && isset($_POST["jugador2"])) {
-                    $precio1 = $_POST["jugador1"];
-                    $precio2 = $_POST["jugador2"];
-                    if ($precio1 == $precio2 && $precio1 == (int) $precio[count($precio) - 1]) {
-                        $resultados[count($precio) - 1] = "empate";
-                    } else if ($precio1 <= $precio[count($precio) - 1] && $precio2 > $precio[count($precio) - 1]) {
-                        $resultados[count($precio) - 1] = "gana j1";
-                    } else if ($precio2 <= $precio[count($precio) - 1] && $precio1 > $precio[count($precio) - 1]) {
-                        $resultados[count($precio) - 1] = "gana j2";
-                    } else if ((int) $precio[count($precio) - 1] - (int) $precio1 < (int) $precio[count($precio) - 1] - (int) $precio2) {
-                        $resultados[count($precio) - 1] = "gana j1";
-                    } else if ((int) $precio[count($precio) - 1] - (int) $precio2 < (int) $precio[count($precio) - 1] - (int) $precio1) {
-                        $resultados[count($precio) - 1] = "gana j2";
-                    } else if ($precio1 > (int) $precio[count($precio) - 1] && $precio2 > (int) $precio[count($precio) - 1]) {
-                        if ($precio2 < $precio1) {
-                            $resultados[count($precio) - 1] = "gana j2";
-                        } else {
-                            $resultados[count($precio) - 1] = "gana j1";
-                        }
-                    }
-
-                    print_r($resultados);
-                }
-
-                ?>
-            </pre>
             <?php
-            foreach ($resultados as $key => $value) { ?>
-                <input type="hidden" name="resultados[]" value="<?= $value ?>">
-            <?php } ?>
+            echo ($DATA);
 
-
-
+            ?>
 
         </div>
     </form>
