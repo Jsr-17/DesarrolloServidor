@@ -8,3 +8,10 @@ $_SESSION["nombre"] = "paco";
     <input type="text" name="nombreUsuario" placeholder="Escriba aqui" value="">
     <button type="submit">Enviar</button>
 </form>
+
+<?php
+
+if (isset($_GET["datos"])) {
+    echo $_GET["datos"];
+}
+?>
