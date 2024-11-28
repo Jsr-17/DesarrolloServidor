@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="envio.php" title="Color">
 <?php
 header("Content-type: text/css");
 $color = rand(0, 360);

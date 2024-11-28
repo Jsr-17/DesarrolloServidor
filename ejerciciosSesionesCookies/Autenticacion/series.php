@@ -1,3 +1,7 @@
+<?php
+session_start();
+if ($_SESSION["logeado"] == "Dentro") {
+    echo '
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,4 +30,10 @@
     </div>
 </body>
 
-</html>
+</html>';
+    echo $_SESSION["logeado"];
+} else {
+    echo "Necesitas estar logeado para ver este contenido";
+
+}
+?>
