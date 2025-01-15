@@ -11,8 +11,7 @@ if (isset($_POST["nombreProducto"]) && isset($_POST["cantidad"]) && isset($_POST
 
 
     $nuevosProductos = ["nombre" => $nombre, "cantidad" => $cantidad, "imagen" => "./imagenes/" . $imagen];
-    $productos[$contador] = $nuevosProductos;
-    $contador++;
+    $productos = [...$productos, $nuevosProductos];
 }
 
 
@@ -57,22 +56,18 @@ producto, cantidad e imagen del producto.
 
 
     <form action="ejercicio1.php" method="post">
-        <input type="hidden" name="contador" value='<?= $contador ?>'>
-        <?php
 
-        for ($i = 0; $i < count($productos); $i++) {
-            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
-            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
-            echo ' <input type="hidden" name="productos[]" value=' . $productos[$i] . '>';
-
-
-        }
-        ?>
 
         Nombre producto: <input type="text" name="nombreProducto">
         Cantidad: <input type="text" name="cantidad">
         Nombre imagen: <input type="text" name="imagenProducto">
         <button type="submit">Enviar producto</button>
+        <?php
+        echo '<input type="hidden" name="productos[]" value=' . print_r($productos) . '>'
+
+        ?>
+
+
     </form>
 
     <table>
@@ -83,21 +78,10 @@ producto, cantidad e imagen del producto.
                 <td>Imagen</td>
             </tr>
         </thead>
-        <tbody><?php
-        for ($i = 0; $i < count($productos); $i++) {
-            echo "
-               <tr>
-               <td>" . $productos[$i]["nombre"] . "</td>
-               <td>" . $productos[$i]["cantidad"] . "</td>
-               <td>  <img src=" . $productos[$i]["imagen"] . " height='100px' alt=" . $productos[$i]["imagen"] . ">
-               </td>
-
-               </tr>
-   ";
-        }
+        <tbody>
 
 
-        ?>
+
         </tbody>
     </table>
 

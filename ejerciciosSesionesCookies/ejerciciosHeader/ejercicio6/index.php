@@ -8,6 +8,10 @@
     <!-- Para llamar al envio de los archivos php y tengan el comportamiento necesario hay que llamarlos con el link y al susodicho usando priint 
     para que se comporten como archivos html -->
     <link rel="stylesheet" href="envio.php" title="Color">
+    <!-- 
+    Esto es importante debido a que esto es la referencia al archivo css creado dinamicamente por php y al hacer una recarga de pagina conseguimos 
+    el efecto deseado 
+-->
 </head>
 
 <body>

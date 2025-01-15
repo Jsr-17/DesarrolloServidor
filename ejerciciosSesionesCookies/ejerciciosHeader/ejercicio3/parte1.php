@@ -15,7 +15,7 @@
     </form>
 
     <?php
-
+    //Recibo por get el mensaje personalizado que recibo por el mensaje de "error"
     if (isset($_GET["dato"])) {
         echo $_GET["dato"];
     }

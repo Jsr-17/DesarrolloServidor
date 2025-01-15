@@ -14,14 +14,17 @@
         <h1>Gestion de inventarios</h1>
         <div class="d-flex justify-content-center align-items-center mt-4">
             <button id="add" class="mx-1 btn btn-dark">Agregar Producto</button>
-            <button id="show" class="mx-1 btn btn-dark">Listar Producto</button>
+            <form action="show.php" method="post" class="mx-1 btn btn-dark" id="show" target="container">Listar Producto</form>
             <button id="update" class="mx-1 btn btn-dark">Actualizar Producto</button>
             <button id="delete" class="mx-1 btn btn-dark">Eliminar Producto</button>
         </div>
         <div id="form">
 
         </div>
-        <div id="container"></div>
+        <div class="my-4" id="container">
+
+        </div>
+
     </div>
     <script src="app.js"></script>
 </body>
