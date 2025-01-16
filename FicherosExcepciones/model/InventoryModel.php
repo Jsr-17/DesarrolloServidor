@@ -27,7 +27,7 @@ class InventoryModel
     {
         $this->precio = $precio;
     }
-    public function setNombre(int $nombre)
+    public function setNombre(string $nombre)
     {
         $this->nombre = $nombre;
     }
